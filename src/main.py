@@ -3,6 +3,7 @@ from importlib.metadata import version as package_version
 
 import typer
 from dotenv import load_dotenv
+from InquirerPy.resolver import prompt
 from typing_extensions import Annotated
 
 # Load API keys from .env file
@@ -14,11 +15,41 @@ app = typer.Typer()
 
 # Command to summarize a specific OpenGov proposal
 @app.command()
-def referendum(ref: Annotated[int, typer.Option()]):
-    """Provides tooling to inspect and generate summaries for OpenGov referenda.."""
+def referendum(ref: Annotated[int, typer.Option()], ctx: typer.Context):
+    """Provides tooling to inspect and generate summaries for OpenGov referenda."""
 
     # Print ref
-    print(f"Dealing with Referendum ID: {ref}")
+    print(f"Ready to work with Referendum ID: {ref}")
+
+    while True:
+        # Prompt user for action
+        questions = [
+            {
+                "type": "list",
+                "name": "choice",
+                "message": "Choose an action:",
+                "choices": [
+                    "Display Referendum Metadata",
+                    "Generate AI Summary",
+                    "Help",
+                    "Exit",
+                ],
+            },
+        ]
+        result = prompt(questions)
+        choice = result["choice"]
+
+        if choice == "Display Referendum Metadata":
+            # Placeholder for displaying referendum metadata
+            typer.echo(f"Displaying metadata for Referendum ID: {ref}")
+        elif choice == "Generate AI Summary":
+            # Placeholder for generating AI summary
+            typer.echo(f"Generating AI summary for Referendum ID: {ref}")
+        elif choice == "Help":
+            typer.echo(ctx.get_help())
+        elif choice == "Exit":
+            # Important: Break the loop to exit the command
+            break
 
 
 # Command to display the OpenGov Summary Python package version
