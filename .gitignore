@@ -1,0 +1,83 @@
+
+#  Core Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+#  Virtual Environments
+.venv/
+venv/
+env/
+# Hatch, Poetry, PDM, Pipenv
+.pyenv/
+.pdm-python/
+.pipenv/
+# Conda
+.conda/
+*.conda
+
+#  Packaging / Distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+*.wheel
+pip-wheel-metadata/
+
+#  Testing & Coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.cache/
+hypothesis/
+
+#  Type Checking & Linting
+.mypy_cache/
+.pytype/
+.pyre/
+ruff_cache/
+.dmypy.json
+
+#  Logs & Runtime Data
+*.log
+*.pot
+*.mo
+*.pid
+*.sqlite3
+instance/
+local_settings.py
+
+#  Jupyter & IPython
+.ipynb_checkpoints/
+*.ipynb
+
+#  IDEs / Editors
+# VS Code
+.vscode/
+# PyCharm / IntelliJ
+.idea/
+# Sublime
+*.sublime*
+# Vim / Emacs
+*~ 
+*.swp
+.session
+
+#  OS Artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+#  Miscellaneous
+# Environment vars
+.env
+.env.*
+# Mac metadata
+__MACOSX/
