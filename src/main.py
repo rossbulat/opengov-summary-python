@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from InquirerPy.resolver import prompt
 from typing_extensions import Annotated
 
+from referendums import get_referendum
+
 # Load API keys from .env file
 load_dotenv()
 
@@ -40,8 +42,14 @@ def referendum(ref: Annotated[int, typer.Option()], ctx: typer.Context):
         choice = result["choice"]
 
         if choice == "Display Referendum Metadata":
-            # Placeholder for displaying referendum metadata
-            typer.echo(f"Displaying metadata for Referendum ID: {ref}")
+            # Placeholder for displaying referendum
+            result = get_referendum(ref)
+            print(f"Referendum ID: {ref}")
+            print(f"Title: {result.get('title', 'Unknown')}")
+            print(f"Status: {result.get('status', 'Unknown')}")
+            print(f"Tags: {', '.join(result.get('tags', []))}")
+            print(f"Comments Count: {result.get('comments_count', 0)}")
+
         elif choice == "Generate AI Summary":
             # Placeholder for generating AI summary
             typer.echo(f"Generating AI summary for Referendum ID: {ref}")
