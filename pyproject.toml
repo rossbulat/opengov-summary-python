@@ -1,3 +1,7 @@
+[project]
+name    = "opengov-summary"
+version = "1.0.0"
+
 [tool.ruff]                 # stays for *global* knobs
 line-length = 100           # affects both lint & format
 target-version = "py311"    # idem
