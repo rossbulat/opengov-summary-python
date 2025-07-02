@@ -1,0 +1,9 @@
+[tool.ruff]                 # stays for *global* knobs
+line-length = 100           # affects both lint & format
+target-version = "py311"    # idem
+
+[tool.ruff.lint]            # NEW home for rule config
+select = ["E", "F", "I"]    # ← was top-level before
+
+[tool.ruff.format]
+quote-style = "double"
