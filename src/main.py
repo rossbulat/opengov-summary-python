@@ -8,9 +8,11 @@ from typing_extensions import Annotated
 # Load API keys from .env file
 load_dotenv()
 
+# Create a Typer app instance
 app = typer.Typer()
 
 
+# Command to summarize a specific OpenGov proposal
 @app.command()
 def referendum(ref: Annotated[int, typer.Option()]):
     """Provides tooling to inspect and generate summaries for OpenGov referenda.."""
@@ -19,6 +21,7 @@ def referendum(ref: Annotated[int, typer.Option()]):
     print(f"Dealing with Referendum ID: {ref}")
 
 
+# Command to display the OpenGov Summary Python package version
 @app.command()
 def version():
     """Prints the current version of the OpenGov Summary Python package."""
