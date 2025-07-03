@@ -2,10 +2,6 @@
 
 OpenGov Summary CLI is a CLI tool using Polkassembly and OpenAI APIs to fetch proposal descriptions and provide a summary to users.
 
-## APIs Used
-
-- [Polkassembly](https://docs.polkassembly.io/jekyll/2023-10-17-api-and-resources.html): For fetching referendum data.
-
 ### Required API Keys
 The application requires an OpenAI API key for AI summary generation functionality:
 
@@ -117,3 +113,8 @@ python demo_tests.py
 - **Edge Cases** - Error handling and boundary conditions
 
 For detailed testing information, see [TEST_DOCUMENTATION.md](TEST_DOCUMENTATION.md).
+
+## APIs Used
+
+- [Polkassembly](https://documenter.getpostman.com/view/764953/2s93JxqLoH#intro): For fetching referendum data from Polkadot OpenGov
+- [OpenAI API](https://platform.openai.com/docs/api-reference): For generating AI-powered summaries of proposals
