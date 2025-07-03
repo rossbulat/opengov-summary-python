@@ -139,34 +139,34 @@ def demo_test_coverage():
     print("""
 The test suite covers the following areas:
 
-📋 UNIT TESTS (test_referendums.py):
+  UNIT TESTS (test_referendums.py):
    ✓ API communication with PolkAssembly
    ✓ OpenAI integration for summaries
    ✓ Error handling for network issues
    ✓ Data parsing and validation
    ✓ Edge cases (empty responses, API errors)
 
-🖥️  CLI HANDLER TESTS (test_main_cli.py - TestMainCLI):
+  CLI HANDLER TESTS (test_main_cli.py - TestMainCLI):
    ✓ Metadata display functionality
    ✓ AI summary generation
    ✓ Help command handling
    ✓ Error scenarios and recovery
    ✓ Missing data handling
 
-🔄 INTEGRATION TESTS (test_main_cli.py - TestCLIIntegration):
+  INTEGRATION TESTS (test_main_cli.py - TestCLIIntegration):
    ✓ Complete user workflow simulations
    ✓ Interactive menu navigation
    ✓ End-to-end command execution
    ✓ User choice handling
    ✓ Exit scenarios
 
-⚠️  EDGE CASE TESTS (test_main_cli.py - TestEdgeCases):
+  EDGE CASE TESTS (test_main_cli.py - TestEdgeCases):
    ✓ Empty and None responses
    ✓ Invalid input handling
    ✓ Network timeout scenarios
    ✓ Malformed data handling
 
-🔧 MOCKING STRATEGY:
+  MOCKING STRATEGY:
    ✓ External API calls mocked for reliability
    ✓ User input simulated for automation
    ✓ Error conditions artificially created
