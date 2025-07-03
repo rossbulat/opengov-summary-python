@@ -117,20 +117,3 @@ python demo_tests.py
 - **Edge Cases** - Error handling and boundary conditions
 
 For detailed testing information, see [TEST_DOCUMENTATION.md](TEST_DOCUMENTATION.md).
-
-## Project Structure
-
-```
-opengov-summary-python/
-├── src/
-│   ├── main.py          # CLI application entry point
-│   └── referendums.py   # Core referendum fetching and summarization
-├── tests/
-│   ├── test_main_cli.py      # CLI interface tests
-│   └── test_referendums.py   # Core functionality tests
-├── requirements.txt     # Project dependencies
-├── pytest.ini         # Test configuration
-├── demo_tests.py       # Test demonstration script
-├── .env.test          # Test environment configuration
-└── README.md          # This file
-```
