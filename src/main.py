@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from InquirerPy.resolver import prompt
 from typing_extensions import Annotated
 
-from referendums import get_referendum
+from referendums import get_referendum, summarise_referendum
 
 # Load API keys from .env file
 load_dotenv()
@@ -15,7 +15,48 @@ load_dotenv()
 app = typer.Typer()
 
 
-# Command to summarize a specific OpenGov proposal
+def handle_display_ai_summary(ref: int):
+    """Handles the generation of AI summary for a referendum."""
+    try:
+        # Fetch referendum data
+        result = get_referendum(ref)
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return False
+    content = result.get("content", False)
+
+    if not content:
+        print("No content available for this referendum.")
+        return
+
+    response = summarise_referendum(content)
+    print(response)
+    print("------ Summary generated successfully ---")
+
+
+def handle_display_metadata(ref: int):
+    """Handles the display of referendum metadata."""
+    print(f"Fetching metadata for Referendum ID: ${ref}")
+
+    try:
+        # Fetch referendum data
+        result = get_referendum(ref)
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return
+
+    print(f"Referendum ID: {ref}")
+    print(f"Title: {result.get('title', 'Unknown')}")
+    print(f"Status: {result.get('status', 'Unknown')}")
+    print(f"Tags: {', '.join(result.get('tags', []))}")
+    print(f"Comments Count: {result.get('comments_count', 0)}")
+
+
+def handle_help(ctx: typer.Context):
+    """Handles the help command."""
+    typer.echo(ctx.get_help())
+
+
 @app.command()
 def referendum(ref: Annotated[int, typer.Option()], ctx: typer.Context):
     """Provides tooling to inspect and generate summaries for OpenGov referenda."""
@@ -42,25 +83,19 @@ def referendum(ref: Annotated[int, typer.Option()], ctx: typer.Context):
         choice = result["choice"]
 
         if choice == "Display Referendum Metadata":
-            # Placeholder for displaying referendum
-            result = get_referendum(ref)
-            print(f"Referendum ID: {ref}")
-            print(f"Title: {result.get('title', 'Unknown')}")
-            print(f"Status: {result.get('status', 'Unknown')}")
-            print(f"Tags: {', '.join(result.get('tags', []))}")
-            print(f"Comments Count: {result.get('comments_count', 0)}")
+            print(f"Fetching metadata for Referendum ID: ${ref}")
+            handle_display_metadata(ref)
 
         elif choice == "Generate AI Summary":
-            # Placeholder for generating AI summary
-            typer.echo(f"Generating AI summary for Referendum ID: {ref}")
+            handle_display_ai_summary(ref)
         elif choice == "Help":
-            typer.echo(ctx.get_help())
+            handle_help(ctx)
         elif choice == "Exit":
+            print("Exiting...")
             # Important: Break the loop to exit the command
             break
 
 
-# Command to display the OpenGov Summary Python package version
 @app.command()
 def version():
     """Prints the current version of the OpenGov Summary Python package."""
