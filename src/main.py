@@ -83,7 +83,6 @@ def referendum(ref: Annotated[int, typer.Option()], ctx: typer.Context):
         choice = result["choice"]
 
         if choice == "Display Referendum Metadata":
-            print(f"Fetching metadata for Referendum ID: ${ref}")
             handle_display_metadata(ref)
 
         elif choice == "Generate AI Summary":
