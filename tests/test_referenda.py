@@ -9,7 +9,7 @@ from referendum import get_referendum, summarise_referendum
 class TestReferendums:
     """Test cases for referendum-related functions."""
 
-    @patch("src.referendums.httpx.Client")
+    @patch("src.referendum.httpx.Client")
     def test_get_referendum_success(self, mock_client):
         """Test successful referendum data fetching."""
         # Mock response data
@@ -45,7 +45,7 @@ class TestReferendums:
             headers={"x-network": "polkadot"},
         )
 
-    @patch("src.referendums.httpx.Client")
+    @patch("src.referendum.httpx.Client")
     def test_get_referendum_http_error(self, mock_client):
         """Test referendum fetching with HTTP error."""
         # Setup mock to raise HTTP error
@@ -63,7 +63,7 @@ class TestReferendums:
         with pytest.raises(httpx.HTTPStatusError):
             get_referendum(999)
 
-    @patch("src.referendums.openai.responses.create")
+    @patch("src.referendum.openai.responses.create")
     def test_summarise_referendum_success(self, mock_openai):
         """Test successful referendum summarization."""
         # Mock OpenAI response
@@ -88,7 +88,7 @@ class TestReferendums:
         assert call_args[1]["input"][1]["role"] == "user"
         assert call_args[1]["input"][1]["content"] == test_content
 
-    @patch("src.referendums.openai.responses.create")
+    @patch("src.referendum.openai.responses.create")
     def test_summarise_referendum_empty_content(self, mock_openai):
         """Test referendum summarization with empty content."""
         mock_response = Mock()
@@ -100,7 +100,7 @@ class TestReferendums:
         assert result == "No content provided for summarization."
         mock_openai.assert_called_once()
 
-    @patch("src.referendums.openai.responses.create")
+    @patch("src.referendum.openai.responses.create")
     def test_summarise_referendum_openai_error(self, mock_openai):
         """Test referendum summarization with OpenAI API error."""
         # Setup mock to raise an exception
