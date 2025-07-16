@@ -3,7 +3,7 @@ from unittest.mock import Mock, patch
 import httpx
 import pytest
 
-from src.referendums import get_referendum, summarise_referendum
+from referendum import get_referendum, summarise_referendum
 
 
 class TestReferendums:

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from InquirerPy.resolver import prompt
 from typing_extensions import Annotated
 
-from referendums import get_referendum, summarise_referendum
+from referendum import get_referendum, summarise_referendum
 
 # Load API keys from .env file
 load_dotenv()
