@@ -99,7 +99,7 @@ The project includes a comprehensive test suite with 22 test cases covering all 
 python -m pytest tests/ -v
 
 # Run specific test categories
-python -m pytest tests/test_referendums.py -v      # Unit tests
+python -m pytest tests/test_referenda.py -v      # Unit tests
 python -m pytest tests/test_main_cli.py -v         # CLI tests
 
 # Run test demo

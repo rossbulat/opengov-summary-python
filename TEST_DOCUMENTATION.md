@@ -6,7 +6,7 @@ This document provides information about the comprehensive test suite for the Op
 
 The test suite includes **22 test cases** covering all aspects of the application:
 
-### 🔧 Unit Tests (`test_referendums.py`)
+### 🔧 Unit Tests (`test_referenda.py`)
 - **5 tests** for core functionality
 - API communication with PolkAssembly
 - OpenAI integration for AI summaries
@@ -53,14 +53,14 @@ python -m pytest tests/ -v
 python -m pytest tests/ --tb=short
 
 # Run specific test files
-python -m pytest tests/test_referendums.py -v
+python -m pytest tests/test_referenda.py -v
 python -m pytest tests/test_main_cli.py -v
 ```
 
 ### Run Test Categories
 ```bash
 # Unit tests only
-python -m pytest tests/test_referendums.py -v
+python -m pytest tests/test_referenda.py -v
 
 # CLI handler tests
 python -m pytest tests/test_main_cli.py::TestMainCLI -v

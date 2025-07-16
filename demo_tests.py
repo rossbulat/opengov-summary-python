@@ -66,7 +66,7 @@ Key Features Tested:
     # Run different categories of tests
     test_commands = [
         (
-            ["python", "-m", "pytest", "tests/test_referendums.py", "-v"],
+            ["python", "-m", "pytest", "tests/test_referenda.py", "-v"],
             "Running unit tests for referendum functions",
         ),
         (
@@ -139,7 +139,7 @@ def demo_test_coverage():
     print("""
 The test suite covers the following areas:
 
-  UNIT TESTS (test_referendums.py):
+  UNIT TESTS (test_referenda.py):
    ✓ API communication with PolkAssembly
    ✓ OpenAI integration for summaries
    ✓ Error handling for network issues
